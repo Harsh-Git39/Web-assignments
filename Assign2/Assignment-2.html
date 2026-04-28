@@ -4,115 +4,57 @@
     <title>Student Information Page</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f8ff;
-            padding: 20px;
-        }
+        body { font-family: Arial; background: #f4f8ff; }
 
-        h2 {
-            text-align: center;
-            color: #2c3e50;
-        }
+        h2 { text-align: center; }
 
-        img {
-            display: block;
-            margin: 15px auto;
-            border-radius: 10px;
-            border: 2px solid #333;
-        }
+        img { display: block; margin: auto; border-radius: 50%; }
 
-        a {
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: bold;
-            color: #0066cc;
-            text-decoration: none;
-        }
+        a { display: block; text-align: center; margin: 10px; }
 
-        a:hover {
-            text-decoration: underline;
-        }
+        table { width: 80%; margin: auto; border-collapse: collapse; }
 
-        table {
-            width: 80%;
-            margin: auto;
-            border-collapse: collapse;
-            background: white;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .nested-table {
-            width: 100%;
-            background-color: #eef3ff;
-        }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
     </style>
 </head>
 
 <body>
 
-    <h2>Student Academic Profile</h2>
+<h2>Student Academic Profile</h2>
 
-    <!-- Image -->
-    <img src="https://via.placeholder.com/200"
-         alt="Student Photo"
-         width="200"
-         height="200">
+<!-- Image -->
+<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+     width="120" height="120">
 
-    <!-- Hyperlink -->
-    <a href="https://github.com" target="_blank">
-        Visit My GitHub Profile
-    </a>
+<!-- Link -->
+<a href="https://github.com" target="_blank">
+    Visit My GitHub Profile
+</a>
 
-    <!-- Main Table -->
-    <table>
+<!-- Table -->
+<table>
+    <tr>
+        <th>Semester</th>
+        <th>Subjects & Marks</th>
+        <th>Status</th>
+    </tr>
 
-        <tr>
-            <th>Semester</th>
-            <th>Subjects & Marks</th>
-            <th>Status</th>
-        </tr>
+    <tr>
+        <td>Semester 1</td>
 
-        <tr>
-            <td>Semester 1</td>
-
+        <td>
             <!-- Nested Table -->
-            <td>
-                <table class="nested-table">
+            <table>
+                <tr><th>Subject</th><th>Marks</th></tr>
+                <tr><td>Math</td><td>85</td></tr>
+                <tr><td>Programming</td><td>90</td></tr>
+                <tr><td>Physics</td><td>80</td></tr>
+            </table>
+        </td>
 
-                    <tr>
-                        <th>Subject</th>
-                        <th>Marks</th>
-                    </tr>
-
-                    <tr>
-                        <td>Mathematics</td>
-                        <td>85</td>
-                    </tr>
-
-                    <tr>
-                        <td>Programming</td>
-                        <td>90</td>
-                    </tr>
-
-                    <tr>
-                        <td>Physics</td>
-                        <td>80</td>
-                    </tr>
-
-                </table>
-            </td>
-
-            <td>Pass</td>
-        </tr>
-
-    </table>
+        <td>Pass</td>
+    </tr>
+</table>
 
 </body>
 </html>

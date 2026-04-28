@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Dynamic Page</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f6ff;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .section {
+            margin: 20px auto;
+            width: 60%;
+            text-align: center;
+        }
+
+        input {
+            width: 60%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        ul {
+            width: 60%;
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        #output {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2 id="title">Student Portal</h2>
+
+    <div class="section">
+
+        <input type="text" id="name" placeholder="Enter name">
+
+        <br>
+
+        <button class="btn" onclick="showMessage()">Show Message</button>
+        <button class="btn" onclick="changeTitle()">Change Title</button>
+        <button class="btn" onclick="addItem()">Add to List</button>
+
+        <p id="output"></p>
+
+    </div>
+
+    <ul id="list">
+        <li>Harsh</li>
+    </ul>
+
+</div>
+
+<script>
+function showMessage() {
+    let name = document.getElementById("name").value;
+
+    if (name === "") {
+        document.getElementById("output").innerHTML = "Enter a name";
+    } else {
+        document.getElementById("output").innerHTML = "Welcome, " + name;
+    }
+}
+
+function changeTitle() {
+    document.getElementById("title").innerHTML = "Updated Portal";
+}
+
+function addItem() {
+    let name = document.getElementById("name").value;
+
+    if (name !== "") {
+        let li = document.createElement("li");
+        li.textContent = name;
+        document.getElementById("list").appendChild(li);
+    }
+}
+</script>
+
+</body>
+</html>

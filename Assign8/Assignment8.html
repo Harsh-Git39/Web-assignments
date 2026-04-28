@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f6ff;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .box {
+            display: inline-block;
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        input, select {
+            padding: 6px;
+            margin: 8px;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        #result {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Simple Calculator</h2>
+
+    <div class="box">
+
+        <input type="number" id="a" placeholder="Enter first number">
+        <br>
+
+        <input type="number" id="b" placeholder="Enter second number">
+        <br>
+
+        <select id="op">
+            <option value="+">Addition (+)</option>
+            <option value="-">Subtraction (-)</option>
+            <option value="*">Multiplication (*)</option>
+            <option value="/">Division (/)</option>
+        </select>
+        <br>
+
+        <button class="btn" onclick="calculate()">Calculate</button>
+
+        <p id="result"></p>
+
+    </div>
+
+</div>
+
+<script>
+function calculate() {
+    let a = Number(document.getElementById("a").value);
+    let b = Number(document.getElementById("b").value);
+    let op = document.getElementById("op").value;
+    let res;
+
+    if (isNaN(a) || isNaN(b)) {
+        document.getElementById("result").innerHTML = "Enter valid numbers";
+        return;
+    }
+
+    switch(op) {
+        case '+': res = a + b; break;
+        case '-': res = a - b; break;
+        case '*': res = a * b; break;
+        case '/':
+            if (b === 0) {
+                document.getElementById("result").innerHTML = "Cannot divide by zero";
+                return;
+            }
+            res = a / b;
+            break;
+    }
+
+    document.getElementById("result").innerHTML = "Result: " + res;
+}
+</script>
+
+</body>
+</html>

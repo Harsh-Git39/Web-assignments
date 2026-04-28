@@ -1,233 +1,63 @@
-
 <!DOCTYPE html>
 <html>
-
 <head>
-<title>Centralised Student Activity Record System</title>
+    <title>Bootstrap Responsive Page</title>
 
-<style>
-
-body{
-    font-family: Arial;
-    background:#f4f6fb;
-    margin:0;
-    padding:0;
-}
-
-/* Header */
-
-header{
-    background:#1e3a8a;
-    color:white;
-    padding:20px;
-    text-align:center;
-}
-
-/* Container */
-
-.container{
-    width:80%;
-    margin:auto;
-    margin-top:30px;
-}
-
-/* Section Cards */
-
-.section{
-    background:white;
-    padding:20px;
-    margin-bottom:25px;
-    border-radius:8px;
-    box-shadow:0 3px 8px rgba(0,0,0,0.1);
-}
-
-/* Inputs */
-
-input{
-    padding:8px;
-    margin:6px;
-    border:1px solid #ccc;
-    border-radius:4px;
-}
-
-/* Buttons */
-
-button{
-    padding:8px 14px;
-    background:#2563eb;
-    color:white;
-    border:none;
-    border-radius:4px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#1d4ed8;
-}
-
-/* Records */
-
-.record{
-    background:#eef2ff;
-    padding:10px;
-    margin-top:8px;
-    border-left:4px solid #2563eb;
-}
-
-</style>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
 
-<header>
-<h1>Centralised Student Record Management System</h1>
-<p>Track Academic, Non-Academic Activities and Mentor Batches</p>
-</header>
+<div class="container mt-4">
 
-<div class="container">
+    <!-- Heading -->
+    <h2 class="text-center mb-4">Student Dashboard CareerFolio</h2>
 
-<!-- Mentor Batch Section -->
+    <!-- Grid Layout -->
+    <div class="row">
+        <div class="col-md-4 bg-primary text-white p-3">
+            <h4>Profile</h4>
+            <p>Name: Harsh</p>
+            <p>Branch: Computer</p>
+        </div>
 
-<div class="section">
+        <div class="col-md-4 bg-success text-white p-3">
+            <h4>Subjects</h4>
+            <ul>
+                <li>DBMS</li>
+                <li>OS</li>
+                <li>CN</li>
+            </ul>
+        </div>
 
-<h2>Mentor Batch Management</h2>
+        <div class="col-md-4 bg-warning p-3">
+            <h4>Marks</h4>
+            <p>DBMS: 85</p>
+            <p>OS: 78</p>
+        </div>
+    </div>
 
-<input type="text" id="mentorName" placeholder="Mentor Name">
+    <!-- Bootstrap Component (Table) -->
+    <h3 class="mt-4">Student List</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Branch</th>
+        </tr>
+        <tr>
+            <td>Harsh</td>
+            <td>Computer</td>
+        </tr>
+        <tr>
+            <td>Amit</td>
+            <td>IT</td>
+        </tr>
+    </table>
 
-<input type="text" id="batchName" placeholder="Batch Name">
-
-<button onclick="addBatch()">Add Batch</button>
-
-<div id="batchList"></div>
-
-</div>
-
-
-<!-- Academic Record Section -->
-
-<div class="section">
-
-<h2>Academic Records</h2>
-
-<input type="text" id="studentName" placeholder="Student Name">
-
-<input type="text" id="subject" placeholder="Subject">
-
-<input type="text" id="grade" placeholder="Grade">
-
-<button onclick="addAcademic()">Add Academic Record</button>
-
-<div id="academicList"></div>
-
-</div>
-
-
-<!-- Non Academic Activities -->
-
-<div class="section">
-
-<h2>Non-Academic Activities</h2>
-
-<input type="text" id="activityStudent" placeholder="Student Name">
-
-<input type="text" id="activityName" placeholder="Activity Name">
-
-<input type="text" id="activityType" placeholder="Activity Type (Workshop, Competition, etc)">
-
-<button onclick="addActivity()">Add Activity</button>
-
-<div id="activityList"></div>
+    <!-- Bootstrap Component (Button) -->
+    <button class="btn btn-primary">Submit</button>
 
 </div>
-
-</div>
-
-
-<script>
-
-var batchData="";
-var academicData="";
-var activityData="";
-
-
-function addBatch(){
-
-var mentor=document.getElementById("mentorName").value;
-var batch=document.getElementById("batchName").value;
-
-if(mentor=="" || batch==""){
-alert("Enter all fields");
-return;
-}
-
-batchData = batchData +
-"<div class='record'>" +
-"<b>Mentor:</b> "+mentor+"<br>"+
-"<b>Batch:</b> "+batch+
-"</div>";
-
-document.getElementById("batchList").innerHTML=batchData;
-
-document.getElementById("mentorName").value="";
-document.getElementById("batchName").value="";
-}
-
-
-
-function addAcademic(){
-
-var name=document.getElementById("studentName").value;
-var subject=document.getElementById("subject").value;
-var grade=document.getElementById("grade").value;
-
-if(name=="" || subject=="" || grade==""){
-alert("Enter all fields");
-return;
-}
-
-academicData = academicData +
-"<div class='record'>" +
-"<b>Student:</b> "+name+"<br>"+
-"<b>Subject:</b> "+subject+"<br>"+
-"<b>Grade:</b> "+grade+
-"</div>";
-
-document.getElementById("academicList").innerHTML=academicData;
-
-document.getElementById("studentName").value="";
-document.getElementById("subject").value="";
-document.getElementById("grade").value="";
-}
-
-
-
-function addActivity(){
-
-var name=document.getElementById("activityStudent").value;
-var activity=document.getElementById("activityName").value;
-var type=document.getElementById("activityType").value;
-
-if(name=="" || activity=="" || type==""){
-alert("Enter all fields");
-return;
-}
-
-activityData = activityData +
-"<div class='record'>" +
-"<b>Student:</b> "+name+"<br>"+
-"<b>Activity:</b> "+activity+"<br>"+
-"<b>Type:</b> "+type+
-"</div>";
-
-document.getElementById("activityList").innerHTML=activityData;
-
-document.getElementById("activityStudent").value="";
-document.getElementById("activityName").value="";
-document.getElementById("activityType").value="";
-}
-
-</script>
 
 </body>
 </html>
-

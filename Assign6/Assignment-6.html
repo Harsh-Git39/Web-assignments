@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f6ff;
+        }
+
+        .container {
+            width: 300px;
+            margin: 80px auto;
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        input {
+            width: 100%;
+            padding: 6px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Login</h2>
+
+    <form onsubmit="return validate()">
+        Email:
+        <input type="text" id="email">
+
+        Password:
+        <input type="password" id="password">
+
+        <input type="submit" value="Login" class="btn">
+    </form>
+
+</div>
+
+<script>
+function validate() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    // Empty check
+    if (email === "" || password === "") {
+        alert("All fields are required");
+        return false;
+    }
+
+    // Simple email check
+    if (!email.includes("@") || !email.includes(".")) {
+        alert("Enter valid email");
+        return false;
+    }
+
+    // Dummy login check
+    if (email === "admin@gmail.com" && password === "1234") {
+        alert("Login Successful");
+        return true;
+    } else {
+        alert("Invalid Email or Password");
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>
